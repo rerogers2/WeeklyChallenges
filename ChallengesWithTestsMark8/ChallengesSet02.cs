@@ -23,12 +23,13 @@ namespace ChallengesWithTestsMark8
 
         public bool IsNumberOdd(int num)
         {
-            return num%2 == 1 ? true : false;
+            return Math.Abs(num)%2 == 1 ? true : false;
         }
 
         public double SumOfMinAndMax(IEnumerable<double> numbers)
         {
-            return numbers.Max() + numbers.Min();
+            return (numbers == null || !numbers.Any()) ? 0 : numbers.Max() + numbers.Min();
+            //return numbers.Any()!=true ? 0 : (numbers.Max() + numbers.Min());
         }
 
         public int GetLengthOfShortestString(string str1, string str2)
@@ -38,25 +39,38 @@ namespace ChallengesWithTestsMark8
 
         public int Sum(int[] numbers)
         {
-            return numbers.Sum();
+            return numbers == null ? 0 : numbers.Sum();
         }
 
         public int SumEvens(int[] numbers)
         {
-            var even = 0;
-            foreach (var num in numbers)
+            if (numbers == null)
             {
-                if (num%2==0) 
-                {
-                    even += num;
-                }
+                return 0;
             }
-            return even;
+            else
+            {
+                var even = 0;
+                foreach (var num in numbers)
+                {
+                    if (num % 2 == 0)
+                    {
+                        even += num;
+                    }
+                }
+                return even;
+            }
+            
         }
 
         public bool IsSumOdd(List<int> numbers)
         {
-            return (numbers.Sum()%2 == 1) ? true : false;
+            if (numbers == null) { return false; }
+            else
+            {
+                return (Math.Abs(numbers.Sum()) % 2 == 1) ? true : false;
+            }
+            
         }
 
         public long CountOfPositiveOddsBelowNumber(long number)
