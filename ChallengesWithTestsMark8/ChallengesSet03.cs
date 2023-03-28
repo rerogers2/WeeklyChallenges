@@ -94,8 +94,6 @@ namespace ChallengesWithTestsMark8
                     words[i] = words[i].ToUpper();
                 }
             }
-            //return words;
-            //throw new NotImplementedException();
         }
     }
 }
